@@ -6,5 +6,7 @@ export const ENDPOINTS = {
     'https://api.themoviedb.org/3/movie/upcoming?language=pt-BR',
   GET_TOP_RATED_MOVIES:
     'https://api.themoviedb.org/3/movie/top_rated?language=pt-BR',
+  GET_MOVIE_DETAILS:
+    'https://api.themoviedb.org/3/movie/movie_id?language=pt-BR',
   BASE_URL_IMAGES: 'https://image.tmdb.org/t/p/original',
 };

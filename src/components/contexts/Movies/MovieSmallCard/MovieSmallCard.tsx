@@ -1,15 +1,22 @@
 import { ENDPOINTS } from '@/constants/endpoints';
-import { Movie } from '@/types/types';
+import { MovieList } from '@/types/types';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 
 type MovieSmallCardProps = {
-  movie: Movie;
+  movie: MovieList;
 };
 
 export function MovieSmallCard({ movie }: MovieSmallCardProps) {
+  const [likeMovie, setLikeMovie] = useState(false);
+
+  function handleLikeMovie() {
+    setLikeMovie((prev) => !prev);
+  }
+
   return (
     <div
       key={movie.id}
@@ -25,10 +32,10 @@ export function MovieSmallCard({ movie }: MovieSmallCardProps) {
           title={`${movie?.original_title}`}
         />
         <div className="w-full flex flex-col gap-1">
-          <div className="flex items-center justify-between gap-1 w-full pt-2">
+          <div className="flex items-center gap-2 w-full pt-2">
             <Link
               href={`/movies/${movie.id}`}
-              className="text-sm font-semibold text-gray-800 break-words cursor-pointer hover:text-blue-700"
+              className="text-sm font-semibold text-gray-800 break-words hover:text-blue-700"
             >
               {movie.title}
             </Link>
@@ -42,12 +49,15 @@ export function MovieSmallCard({ movie }: MovieSmallCardProps) {
             })}
           </p>
           <div className="mt-4 flex items-center">
-            <div className="flex text-gray-700 text-sm mr-3">
+            <div
+              className="flex items-center text-gray-700 text-sm mr-3 cursor-pointer w-full justify-center"
+              onClick={handleLikeMovie}
+            >
               <svg
-                fill="none"
+                fill={likeMovie ? '#3B82F6' : 'none'}
                 viewBox="0 0 24 24"
-                className="w-4 h-4 mr-1"
-                stroke="currentColor"
+                className="w-8 h-5"
+                stroke={likeMovie ? '#3B82F6' : 'currentColor'}
               >
                 <path
                   strokeLinecap="round"
@@ -56,23 +66,7 @@ export function MovieSmallCard({ movie }: MovieSmallCardProps) {
                   d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                 />
               </svg>
-              <span>12</span>
-            </div>
-            <div className="flex mr-2 text-gray-700 text-sm">
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                className="w-4 h-4 mr-1"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                />
-              </svg>
-              <span>share</span>
+              <span>Curtir</span>
             </div>
           </div>
         </div>

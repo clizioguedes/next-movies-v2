@@ -3,7 +3,6 @@ import {
   getNowPlayingMovies,
   getPopularMovies,
   getTopRatedMovies,
-  getUpcomingMovies,
 } from '@/services/requests/movies';
 import getQueryClient from '@/utils/getQueryClient';
 import Hydrate from '@/utils/hydrate.client';
@@ -14,7 +13,6 @@ export default async function Movies() {
 
   await queryClient.prefetchQuery(['popularMovies'], getPopularMovies);
   await queryClient.prefetchQuery(['nowPlayingMovies'], getNowPlayingMovies);
-  await queryClient.prefetchQuery(['upcomingMovies'], getUpcomingMovies);
   await queryClient.prefetchQuery(['topRatedMovies'], getTopRatedMovies);
 
   const dehydrateState = dehydrate(queryClient);
