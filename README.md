@@ -1,5 +1,15 @@
 # Technical Test App Movies
 
+## Features
+
+- Consumindo a api do [https://api.themoviedb.org](https://developer.themoviedb.org/docs)
+
+- Favoritar Filmes
+
+- Acesso a página de favoritos
+
+- Acesso ao detalhamento de cada filme
+
 ## Getting Started
 
 ### Prerequisites
@@ -22,6 +32,6 @@ yarn
 npm run dev
 # or
 yarn dev
+```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-```
