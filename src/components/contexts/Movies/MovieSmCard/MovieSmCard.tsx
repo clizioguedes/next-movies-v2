@@ -5,7 +5,7 @@ import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useContext, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 
 type MovieSmCardProps = {
   movie: MovieList;
@@ -18,21 +18,17 @@ export function MovieSmCard({ movie }: MovieSmCardProps) {
     moviesLiked.length && !!moviesLiked.find((liked) => liked.id === movie.id)
   );
 
-  function handleLikeMovie(movie: MovieList) {
-    setMovieLiked((previous) => {
-      if (previous) {
-        const moviesLikedUpdated = moviesLiked.filter(
-          (item) => item.id !== movie.id
-        );
-        handleLikeMovies(moviesLikedUpdated);
-        return !previous;
-      }
+  useEffect(() => {
+    handleLikeMovies(
+      movieLiked
+        ? [...moviesLiked, movie]
+        : moviesLiked.filter((item) => item.id !== movie.id)
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [movieLiked, movie]);
 
-      const moviesLikedUpdated = [...moviesLiked, movie];
-      handleLikeMovies(moviesLikedUpdated);
-
-      return !previous;
-    });
+  function handleLikeMovie() {
+    setMovieLiked((previous) => !previous);
   }
 
   return (
@@ -70,7 +66,7 @@ export function MovieSmCard({ movie }: MovieSmCardProps) {
             <div
               className="flex items-center text-gray-700 text-sm mr-3 cursor-pointer w-full justify-center"
               onClick={() => {
-                handleLikeMovie(movie);
+                handleLikeMovie();
               }}
             >
               <svg
