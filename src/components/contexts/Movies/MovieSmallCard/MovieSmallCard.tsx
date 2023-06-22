@@ -1,20 +1,42 @@
 import { ENDPOINTS } from '@/constants/endpoints';
+import { MoviesContext } from '@/contexts/movies/Movies.context';
 import { MovieList } from '@/types/types';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 type MovieSmallCardProps = {
   movie: MovieList;
 };
 
 export function MovieSmallCard({ movie }: MovieSmallCardProps) {
-  const [likeMovie, setLikeMovie] = useState(false);
+  const { moviesLiked, handleLikeMovies } = useContext(MoviesContext);
 
-  function handleLikeMovie() {
-    setLikeMovie((prev) => !prev);
+  const [movieLiked, setMovieLiked] = useState(
+    moviesLiked.length && !!moviesLiked.find((liked) => liked.id === movie.id)
+  );
+
+  console.log(moviesLiked);
+
+  function handleLikeMovie(movie: MovieList) {
+    setMovieLiked((previous) => {
+      if (previous) {
+        const moviesLikedUpdated = moviesLiked.filter(
+          (item) => item.id !== movie.id
+        );
+        handleLikeMovies(moviesLikedUpdated);
+        return !previous;
+      }
+
+      const moviesLikedUpdated = [...moviesLiked, movie];
+      handleLikeMovies(moviesLikedUpdated);
+
+      return !previous;
+    });
+
+    console.log('moviesLiked', moviesLiked);
   }
 
   return (
@@ -51,13 +73,15 @@ export function MovieSmallCard({ movie }: MovieSmallCardProps) {
           <div className="mt-4 flex items-center">
             <div
               className="flex items-center text-gray-700 text-sm mr-3 cursor-pointer w-full justify-center"
-              onClick={handleLikeMovie}
+              onClick={() => {
+                handleLikeMovie(movie);
+              }}
             >
               <svg
-                fill={likeMovie ? '#3B82F6' : 'none'}
+                fill={movieLiked ? '#3B82F6' : 'none'}
                 viewBox="0 0 24 24"
                 className="w-8 h-5"
-                stroke={likeMovie ? '#3B82F6' : 'currentColor'}
+                stroke={moviesLiked[movie.id] ? '#3B82F6' : 'currentColor'}
               >
                 <path
                   strokeLinecap="round"

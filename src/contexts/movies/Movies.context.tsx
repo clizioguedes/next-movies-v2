@@ -1,9 +1,11 @@
-import { Movie } from '@/types/types';
+'use client';
+
+import { MovieList } from '@/types/types';
 import { ReactNode, createContext, useState } from 'react';
 
 type MoviesContextProps = {
-  moviesLiked: Movie[] | [];
-  handleLikeMovies: (movie: Movie) => void;
+  moviesLiked: MovieList[] | [];
+  handleLikeMovies: (movie: MovieList[]) => void;
 };
 
 export const MoviesContext = createContext<MoviesContextProps>(
@@ -11,10 +13,10 @@ export const MoviesContext = createContext<MoviesContextProps>(
 );
 
 export function MoviesProvider({ children }: { children: ReactNode }) {
-  const [moviesLiked, setMoviesLiked] = useState<Movie[] | []>([]);
+  const [moviesLiked, setMoviesLiked] = useState<MovieList[] | []>([]);
 
-  function handleLikeMovies(movie: Movie) {
-    setMoviesLiked((previous) => [...previous, movie]);
+  function handleLikeMovies(movies: MovieList[]) {
+    setMoviesLiked(movies);
   }
 
   return (
