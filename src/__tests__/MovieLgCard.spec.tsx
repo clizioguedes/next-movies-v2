@@ -1,6 +1,6 @@
 import { moviesListMock } from '@/__mocks__/movies';
-import { MovieSmCard } from '@/components/contexts/Movies/MovieSmCard';
-import { MoviesContext } from '@/contexts/movies/Movies.context';
+import { MovieSmCard } from '@/components/contexts/movies/MovieSmCard';
+import { MoviesContext } from '@/contexts/movies/movies.context';
 
 import { render, screen } from '@testing-library/react';
 

@@ -1,5 +1,5 @@
 import { ENDPOINTS } from '@/constants/endpoints';
-import { MoviesContext } from '@/contexts/movies/Movies.context';
+import { MoviesContext } from '@/contexts/movies/movies.context';
 import { MovieList } from '@/types/types';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';

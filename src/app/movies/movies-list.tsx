@@ -1,6 +1,6 @@
 'use client';
 
-import { MovieSmCard } from '@/components/contexts/Movies/MovieSmCard';
+import { MovieSmCard } from '@/components/contexts/movies/MovieSmCard';
 import { HorizontalList } from '@/components/structure/HorizontalList';
 import {
   getNowPlayingMovies,

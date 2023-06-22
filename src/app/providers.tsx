@@ -1,6 +1,6 @@
 'use client';
 
-import { MoviesProvider } from '@/contexts/movies/Movies.context';
+import { MoviesProvider } from '@/contexts/movies/movies.context';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ReactNode, useState } from 'react';
