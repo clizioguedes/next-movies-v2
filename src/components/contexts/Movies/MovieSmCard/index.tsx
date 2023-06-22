@@ -1,0 +1,1 @@
+export { MovieSmCard } from './MovieSmCard';

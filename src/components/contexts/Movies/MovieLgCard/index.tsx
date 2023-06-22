@@ -1,0 +1,1 @@
+export { MovieLgCard } from './MovieLgCard';

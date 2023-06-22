@@ -7,7 +7,10 @@ type HorizontalListProps = {
 
 export function HorizontalList({ children, title }: HorizontalListProps) {
   return (
-    <main className="mx-10 overflow-x-scroll overflow-y-scroll">
+    <main
+      className="mx-10 overflow-x-scroll overflow-y-scroll"
+      data-testid="horizontal-list"
+    >
       <h2 className="text-lg font-semibold text-gray-800 pt-2 break-words">
         {title}
       </h2>

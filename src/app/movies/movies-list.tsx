@@ -1,6 +1,6 @@
 'use client';
 
-import { MovieSmallCard } from '@/components/contexts/Movies/MovieSmallCard';
+import { MovieSmCard } from '@/components/contexts/Movies/MovieSmCard';
 import { HorizontalList } from '@/components/structure/HorizontalList';
 import {
   getNowPlayingMovies,
@@ -30,19 +30,19 @@ export function MoviesList() {
     <main>
       <HorizontalList title="Filmes Populares">
         {popularMovies?.map((movie: MovieList) => {
-          return <MovieSmallCard key={movie.id} movie={movie} />;
+          return <MovieSmCard key={movie.id} movie={movie} />;
         })}
       </HorizontalList>
 
       <HorizontalList title="Em Cartaz">
         {nowPlayingMovies?.map((movie: MovieList) => {
-          return <MovieSmallCard key={movie.id} movie={movie} />;
+          return <MovieSmCard key={movie.id} movie={movie} />;
         })}
       </HorizontalList>
 
       <HorizontalList title="Melhores Avaliados">
         {topRatedMovies?.map((movie: MovieList) => {
-          return <MovieSmallCard key={movie.id} movie={movie} />;
+          return <MovieSmCard key={movie.id} movie={movie} />;
         })}
       </HorizontalList>
     </main>

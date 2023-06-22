@@ -7,18 +7,16 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useContext, useState } from 'react';
 
-type MovieSmallCardProps = {
+type MovieSmCardProps = {
   movie: MovieList;
 };
 
-export function MovieSmallCard({ movie }: MovieSmallCardProps) {
+export function MovieSmCard({ movie }: MovieSmCardProps) {
   const { moviesLiked, handleLikeMovies } = useContext(MoviesContext);
 
   const [movieLiked, setMovieLiked] = useState(
     moviesLiked.length && !!moviesLiked.find((liked) => liked.id === movie.id)
   );
-
-  console.log(moviesLiked);
 
   function handleLikeMovie(movie: MovieList) {
     setMovieLiked((previous) => {
@@ -35,8 +33,6 @@ export function MovieSmallCard({ movie }: MovieSmallCardProps) {
 
       return !previous;
     });
-
-    console.log('moviesLiked', moviesLiked);
   }
 
   return (
