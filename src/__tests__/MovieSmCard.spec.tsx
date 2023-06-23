@@ -1,7 +1,7 @@
 import { moviesListMock } from '@/__mocks__/movies';
 import { MovieSmCard } from '@/components/contexts/movies/MovieSmCard';
 import { MoviesContext } from '@/contexts/movies/movies.context';
-import { MovieList } from '@/types/types';
+import { MovieList } from '@/types/movie';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 const moviesLiked = [] as MovieList[];

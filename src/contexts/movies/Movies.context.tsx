@@ -1,6 +1,6 @@
 'use client';
 
-import { MovieList } from '@/types/types';
+import { MovieList } from '@/types/movie';
 import { ReactNode, createContext, useState } from 'react';
 
 type MoviesContextProps = {

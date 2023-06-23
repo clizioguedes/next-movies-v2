@@ -7,7 +7,7 @@ import {
   getPopularMovies,
   getTopRatedMovies,
 } from '@/services/requests/movies';
-import { MovieList } from '@/types/types';
+import { MovieList } from '@/types/movie';
 import { useQuery } from '@tanstack/react-query';
 
 export function MoviesList() {

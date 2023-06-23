@@ -1,6 +1,6 @@
 import { ENDPOINTS } from '@/constants/endpoints';
 import instance from '@/services/api';
-import { Movie, MovieList } from '@/types/types';
+import { Movie, MovieList } from '@/types/movie';
 
 export async function getPopularMovies(): Promise<MovieList[]> {
   const data = await instance

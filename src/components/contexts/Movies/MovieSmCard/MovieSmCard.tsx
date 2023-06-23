@@ -1,6 +1,6 @@
 import { ENDPOINTS } from '@/constants/endpoints';
 import { MoviesContext } from '@/contexts/movies/movies.context';
-import { MovieList } from '@/types/types';
+import { MovieList } from '@/types/movie';
 import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Image from 'next/image';
