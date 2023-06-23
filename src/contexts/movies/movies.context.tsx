@@ -5,7 +5,7 @@ import { ReactNode, createContext, useState } from 'react';
 
 type MoviesContextProps = {
   moviesLiked: MovieList[] | [];
-  handleLikeMovies: (movie: MovieList[]) => void;
+  handleLikeMovie: (movie: MovieList) => void;
 };
 
 export const MoviesContext = createContext<MoviesContextProps>(
@@ -15,15 +15,25 @@ export const MoviesContext = createContext<MoviesContextProps>(
 export function MoviesProvider({ children }: { children: ReactNode }) {
   const [moviesLiked, setMoviesLiked] = useState<MovieList[] | []>([]);
 
-  function handleLikeMovies(movies: MovieList[]) {
-    setMoviesLiked(movies);
+  function handleLikeMovie(movie: MovieList) {
+    const hasExistsLikedMovie = !!moviesLiked.find(
+      (liked) => liked.id === movie.id
+    );
+
+    if (hasExistsLikedMovie) {
+      return setMoviesLiked(
+        moviesLiked.filter((liked) => liked.id !== movie.id)
+      );
+    }
+
+    setMoviesLiked([...moviesLiked, movie]);
   }
 
   return (
     <MoviesContext.Provider
       value={{
         moviesLiked,
-        handleLikeMovies,
+        handleLikeMovie,
       }}
     >
       {children}

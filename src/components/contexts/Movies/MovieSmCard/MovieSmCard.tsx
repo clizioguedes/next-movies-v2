@@ -5,30 +5,25 @@ import { format } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 
 type MovieSmCardProps = {
   movie: MovieList;
 };
 
 export function MovieSmCard({ movie }: MovieSmCardProps) {
-  const { moviesLiked, handleLikeMovies } = useContext(MoviesContext);
+  const { moviesLiked, handleLikeMovie: onLikeMovie } =
+    useContext(MoviesContext);
 
-  const [movieLiked, setMovieLiked] = useState(
-    moviesLiked.length && !!moviesLiked.find((liked) => liked.id === movie.id)
+  const [isLiked, setIsLiked] = useState(
+    !!moviesLiked.find((liked) => movie.id === liked.id)
   );
 
-  useEffect(() => {
-    handleLikeMovies(
-      movieLiked
-        ? [...moviesLiked, movie]
-        : moviesLiked.filter((item) => item.id !== movie.id)
-    );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [movieLiked, movie]);
-
   function handleLikeMovie() {
-    setMovieLiked((previous) => !previous);
+    setIsLiked((previous: boolean) => {
+      onLikeMovie(movie);
+      return !previous;
+    });
   }
 
   return (
@@ -70,10 +65,10 @@ export function MovieSmCard({ movie }: MovieSmCardProps) {
               }}
             >
               <svg
-                fill={movieLiked ? '#3B82F6' : 'none'}
+                fill={isLiked ? '#3B82F6' : 'none'}
                 viewBox="0 0 24 24"
                 className="w-8 h-5"
-                stroke={movieLiked ? '#3B82F6' : 'currentColor'}
+                stroke={isLiked ? '#3B82F6' : 'currentColor'}
               >
                 <path
                   strokeLinecap="round"
