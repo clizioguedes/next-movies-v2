@@ -2,13 +2,13 @@
 
 ## Features
 
-- Consumindo a api do [https://api.themoviedb.org](https://developer.themoviedb.org/docs)
+- Consuming the [https://api.themoviedb.org](https://developer.themoviedb.org/docs) api
 
-- Favoritar Filmes
+- Favorite Movies
 
-- Acesso a página de favoritos
+- Access to favorites page
 
-- Acesso ao detalhamento de cada filme
+- Access to movie detail page
 
 ## Getting Started
 
