@@ -6,6 +6,6 @@ describe('Header Component', () => {
   test('render component', () => {
     render(<Header />);
 
-    expect(screen.getByText('Favoritos')).toBeInTheDocument;
+    expect(screen.getByText('Favoritos')).toBeInTheDocument();
   });
 });

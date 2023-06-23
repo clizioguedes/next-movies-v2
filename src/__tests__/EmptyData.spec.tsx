@@ -6,6 +6,6 @@ describe('Header Component', () => {
   test('render component', () => {
     render(<EmptyData />);
 
-    expect(screen.getByText('Sem favoritos cadastrados')).toBeInTheDocument;
+    expect(screen.getByText('Sem favoritos cadastrados')).toBeInTheDocument();
   });
 });

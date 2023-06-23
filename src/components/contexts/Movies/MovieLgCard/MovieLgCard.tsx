@@ -24,7 +24,7 @@ export function MovieLgCard({ movie }: MovieLgCardProps) {
           alt={`Poster do ${movie?.original_title}`}
           title={`${movie?.original_title}`}
         />
-        <div className="">
+        <div className="flex flex-col gap-0">
           <div className="flex items-center justify-between">
             <Link
               href={`/movies/${movie.id}`}
@@ -32,32 +32,18 @@ export function MovieLgCard({ movie }: MovieLgCardProps) {
             >
               {movie.title}
             </Link>
-            <small className="text-sm text-gray-700">
-              {' '}
-              {format(new Date(movie?.release_date), "dd 'de' MMMM 'de' yyyy", {
-                locale: ptBR,
-              })}
-            </small>
+
+            <p className="bg-blue-500 text-white text-xs font-semibold p-1 rounded w-8 text-center">
+              {movie.vote_average}
+            </p>
           </div>
-          <p className="bg-blue-500 text-white text-xs font-semibold p-1 rounded w-8 text-center">
-            {movie.vote_average}
-          </p>
+          <small className="text-sm text-gray-700">
+            {' '}
+            {format(new Date(movie?.release_date), "dd 'de' MMMM 'de' yyyy", {
+              locale: ptBR,
+            })}
+          </small>
           <p className="mt-3 text-gray-700 text-sm">{movie.overview}</p>
-          <div className="mt-4 flex items-center">
-            <svg
-              fill={'#3B82F6'}
-              viewBox="0 0 24 24"
-              className="w-8 h-5"
-              stroke={'#3B82F6'}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-              />
-            </svg>
-          </div>
         </div>
       </div>
     </div>

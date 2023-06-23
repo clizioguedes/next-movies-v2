@@ -12,7 +12,7 @@ describe('Header Component', () => {
       </HorizontalList>
     );
 
-    expect(screen.getByText('Filmes mais aguardados')).toBeInTheDocument;
-    expect(screen.getByTestId('horizontal-list')).toBeVisible;
+    expect(screen.getByText('Filmes mais aguardados')).toBeInTheDocument();
+    expect(screen.getByTestId('horizontal-list')).toBeVisible();
   });
 });

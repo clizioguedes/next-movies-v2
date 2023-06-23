@@ -21,6 +21,6 @@ describe('Movie Large Card Component', () => {
       </MoviesContext.Provider>
     );
 
-    expect(screen.getByText(titleMovieMock)).toBeInTheDocument;
+    expect(screen.getByText(titleMovieMock)).toBeInTheDocument();
   });
 });

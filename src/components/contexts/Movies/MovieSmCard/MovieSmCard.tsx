@@ -73,7 +73,7 @@ export function MovieSmCard({ movie }: MovieSmCardProps) {
                 fill={movieLiked ? '#3B82F6' : 'none'}
                 viewBox="0 0 24 24"
                 className="w-8 h-5"
-                stroke={moviesLiked[movie.id] ? '#3B82F6' : 'currentColor'}
+                stroke={movieLiked ? '#3B82F6' : 'currentColor'}
               >
                 <path
                   strokeLinecap="round"

@@ -16,10 +16,10 @@ test('renders movie card correctly', () => {
   );
 
   const movieTitle = screen.getByText(moviesListMock[0].title);
-  expect(movieTitle).toBeInTheDocument;
+  expect(movieTitle).toBeInTheDocument();
 
   const likeButton = screen.getByText(/Curtir/i);
-  expect(likeButton).toBeInTheDocument;
+  expect(likeButton).toBeInTheDocument();
 
   fireEvent.click(likeButton);
 
