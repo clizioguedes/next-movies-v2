@@ -3,7 +3,7 @@ import instance from '@/services/api';
 import { Movie, MovieList } from '@/types/movie';
 
 export async function getPopularMovies(): Promise<MovieList[]> {
-  const data = await instance
+  const data: MovieList[] = await instance
     .get(ENDPOINTS.GET_POPULAR_MOVIES)
     .then((response) => response.data.results);
 
@@ -11,7 +11,7 @@ export async function getPopularMovies(): Promise<MovieList[]> {
 }
 
 export async function getNowPlayingMovies(): Promise<MovieList[]> {
-  const data = await instance
+  const data: MovieList[] = await instance
     .get(ENDPOINTS.GET_NOW_PLAYING_MOVIES)
     .then((response) => response.data.results);
 
@@ -19,7 +19,7 @@ export async function getNowPlayingMovies(): Promise<MovieList[]> {
 }
 
 export async function getTopRatedMovies(): Promise<MovieList[]> {
-  const data = await instance
+  const data: MovieList[] = await instance
     .get(ENDPOINTS.GET_TOP_RATED_MOVIES)
     .then((response) => response.data.results);
 
@@ -27,7 +27,7 @@ export async function getTopRatedMovies(): Promise<MovieList[]> {
 }
 
 export async function getMovieDetails(id: string): Promise<Movie> {
-  const data = await instance
+  const data: Movie = await instance
     .get(ENDPOINTS.GET_MOVIE_DETAILS.replace(':movie_id', id))
     .then((response) => response.data);
 
