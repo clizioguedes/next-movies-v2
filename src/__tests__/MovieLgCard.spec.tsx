@@ -1,5 +1,5 @@
 import { moviesListMock } from '@/__mocks__/movies';
-import { MovieSmCard } from '@/components/contexts/movies/MovieSmCard';
+import { MovieLgCard } from '@/components/contexts/Movies/MovieLgCard';
 import { MoviesContext } from '@/contexts/movies/movies.context';
 
 import { render, screen } from '@testing-library/react';
@@ -17,7 +17,7 @@ describe('Movie Large Card Component', () => {
           handleLikeMovies: () => null,
         }}
       >
-        <MovieSmCard movie={moviesListMock[0]} />
+        <MovieLgCard movie={moviesListMock[0]} />
       </MoviesContext.Provider>
     );
 

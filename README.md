@@ -21,16 +21,12 @@
 - First, install packages: (using yarn)
 
 ```bash
-npm install
-# or
 yarn
 ```
 
 - Second, execute server
 
 ```bash
-npm run dev
-# or
 yarn dev
 ```
 

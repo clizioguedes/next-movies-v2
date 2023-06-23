@@ -1,1 +1,1 @@
-export { MovieSmCard } from './MovieSmCard';
+export { MovieSmCard } from '@/components/contexts/Movies/MovieSmCard/MovieSmCard';
